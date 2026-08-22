@@ -1,6 +1,6 @@
 /* =========================================================
    GIFTED HANDS
-   GLOBAL STYLE — ALL PAGES
+   INDEX PAGE — MATCHES CURRENT index.html
    ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
@@ -9,13 +9,11 @@
 :root {
     --black: #080808;
     --dark: #0d0d0d;
-    --dark-2: #111111;
+    --card: #121212;
     --gold: #c8a45d;
     --gold-light: #d8b76c;
     --white: #f5f5f5;
-    --text: #c3c3c3;
-    --muted: #888;
-    --border: rgba(255,255,255,0.10);
+    --gray: #a0a0a0;
 }
 
 
@@ -40,8 +38,8 @@ body {
 
 
 a {
-    color: inherit;
     text-decoration: none;
+    color: inherit;
 }
 
 
@@ -51,93 +49,59 @@ img {
 }
 
 
-button,
-a {
-    -webkit-tap-highlight-color: transparent;
-}
-
-
 /* =========================================================
    HEADER
    ========================================================= */
 
-.site-header {
+header {
     position: absolute;
-    z-index: 1000;
     top: 0;
     left: 0;
 
     width: 100%;
-    height: 92px;
+    height: 90px;
 
-    padding: 0 5.5%;
+    padding: 0 6%;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    z-index: 100;
 }
 
 
-/* LOGO */
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-
-.logo-mark {
-    width: 45px;
-    height: 45px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid var(--gold);
-    border-radius: 10px;
-
-    color: var(--gold);
-    font-size: 21px;
-}
-
-
-.logo-text {
-    display: flex;
-    flex-direction: column;
-}
-
-
-.logo-text strong {
+.logo h2 {
     color: var(--gold-light);
-    font-size: 19px;
+
+    font-size: 21px;
     font-weight: 600;
-    letter-spacing: 1px;
+
+    letter-spacing: 2px;
 }
 
 
-.logo-text small {
-    margin-top: 3px;
+.logo span {
+    display: block;
 
-    color: #aaa;
+    margin-top: 4px;
+
+    color: #999;
+
     font-size: 7px;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 
-/* NAVIGATION */
-
-.main-nav {
+nav {
     display: flex;
     align-items: center;
     gap: 32px;
 }
 
 
-.main-nav a {
+nav a {
     position: relative;
 
     color: #ddd;
@@ -149,20 +113,25 @@ a {
 }
 
 
-.main-nav a:hover,
-.main-nav a.active {
+nav a:hover {
     color: var(--gold);
 }
 
 
-.main-nav a.active::after {
+nav a:first-child {
+    color: var(--gold);
+}
+
+
+nav a:first-child::after {
     content: "";
 
     position: absolute;
 
     left: 0;
     right: 0;
-    bottom: -17px;
+
+    bottom: -16px;
 
     height: 2px;
 
@@ -170,693 +139,404 @@ a {
 }
 
 
-/* HEADER SOCIALS */
+/* =========================================================
+   HERO
+   ========================================================= */
 
-.nav-socials {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.hero {
+    position: relative;
+
+    width: 100%;
+    height: 670px;
+
+    overflow: hidden;
 }
 
 
-.nav-socials a {
-    width: 29px;
-    height: 29px;
+/* Full background image */
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.hero-image {
+    position: absolute;
 
-    border: 1px solid rgba(200,164,93,.35);
-    border-radius: 50%;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 1;
+}
+
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* Dark overlay */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5,5,5,.98) 0%,
+            rgba(5,5,5,.92) 20%,
+            rgba(5,5,5,.70) 37%,
+            rgba(5,5,5,.25) 58%,
+            rgba(5,5,5,.03) 78%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(5,5,5,.55),
+            transparent 45%
+        );
+}
+
+
+/* Hero text */
+
+.hero-content {
+    position: absolute;
+
+    left: 6%;
+    top: 165px;
+
+    width: 390px;
+
+    z-index: 5;
+}
+
+
+.hero-content > p:first-child {
+    position: relative;
+
+    padding-left: 30px;
+
+    margin-bottom: 18px;
 
     color: var(--gold);
 
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+
+.hero-content > p:first-child::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 50%;
+
+    width: 19px;
+    height: 1px;
+
+    background: var(--gold);
+}
+
+
+.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 72px;
+
+    line-height: .88;
+
+    font-weight: 600;
+
+    letter-spacing: -1px;
+}
+
+
+.hero h1 span {
+    color: var(--gold-light);
+}
+
+
+.hero .description {
+    max-width: 360px;
+
+    margin: 27px 0 28px;
+
+    color: #c4c4c4;
+
     font-size: 11px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 180px;
+    height: 43px;
+
+    padding: 0 20px;
+
+    background: var(--gold);
+
+    border: 1px solid var(--gold);
+
+    border-radius: 4px;
+
+    color: #080808;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
 
     transition: .3s ease;
 }
 
 
-.nav-socials a:hover {
-    background: var(--gold);
-    color: #080808;
+.btn:hover {
+    background: var(--gold-light);
+
+    border-color: var(--gold-light);
+
     transform: translateY(-3px);
 }
 
 
 /* =========================================================
-   GENERAL PAGE HERO
+   SERVICES
    ========================================================= */
 
-.page-hero {
+.services {
     position: relative;
 
-    height: 470px;
-    width: 100%;
+    z-index: 20;
 
-    display: flex;
-    align-items: center;
+    width: 90%;
 
-    padding: 100px 7% 50px;
+    margin: -55px auto 0;
 
-    overflow: hidden;
+    padding: 28px;
 
-    background:
-        linear-gradient(
-            90deg,
-            rgba(5,5,5,.98),
-            rgba(5,5,5,.80),
-            rgba(5,5,5,.35)
-        ),
-        url("hero.jpg");
+    display: grid;
 
-    background-size: cover;
-    background-position: center;
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 0;
+
+    background: rgba(17,17,17,.97);
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    border-radius: 16px;
+
+    backdrop-filter: blur(10px);
 }
 
 
-.page-hero::after {
+.service-card {
+    position: relative;
+
+    padding: 10px 22px;
+
+    background: transparent;
+
+    border: none;
+
+    min-height: 90px;
+}
+
+
+.service-card:not(:last-child)::after {
     content: "";
 
     position: absolute;
-    inset: 0;
 
-    background:
-        linear-gradient(
-            0deg,
-            rgba(8,8,8,.95),
-            transparent 40%
-        );
+    right: 0;
+    top: 8px;
 
-    pointer-events: none;
+    width: 1px;
+    height: 70px;
+
+    background: rgba(255,255,255,.12);
 }
 
 
-.page-hero-content {
-    position: relative;
-    z-index: 2;
+.service-card h3 {
+    margin-bottom: 10px;
 
-    max-width: 650px;
-}
-
-
-.section-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-
-    margin-bottom: 18px;
-
-    color: var(--gold);
+    color: #eee;
 
     font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 2px;
+
+    letter-spacing: .8px;
 }
 
 
-.section-label i {
-    width: 20px;
-    height: 1px;
+.service-card p {
+    color: #898989;
 
-    display: inline-block;
+    font-size: 9px;
 
-    background: var(--gold);
-}
-
-
-.page-hero h1 {
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 76px;
-    line-height: .9;
-    font-weight: 600;
-}
-
-
-.page-hero h1 span {
-    color: var(--gold-light);
-}
-
-
-.page-hero p {
-    max-width: 480px;
-
-    margin-top: 22px;
-
-    color: #aaa;
-
-    font-size: 13px;
-    line-height: 1.8;
+    line-height: 1.65;
 }
 
 
 /* =========================================================
-   ABOUT PAGE
+   PROJECTS
    ========================================================= */
 
-.about-section {
-    width: 90%;
-
-    margin: 0 auto;
-
-    padding: 90px 0;
-
-    display: grid;
-    grid-template-columns: 1.25fr .75fr;
-
-    gap: 80px;
-
-    align-items: center;
-}
-
-
-.about-content h2 {
-    max-width: 650px;
-
-    margin-bottom: 30px;
-
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 55px;
-    line-height: .95;
-}
-
-
-.about-content h2 span {
-    color: var(--gold);
-}
-
-
-.about-content p {
-    max-width: 700px;
-
-    margin-bottom: 18px;
-
-    color: var(--text);
-
-    font-size: 13px;
-    line-height: 1.9;
-}
-
-
-/* ABOUT HIGHLIGHT */
-
-.about-highlight {
-    min-height: 430px;
-
-    padding: 45px 35px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.projects-preview {
+    padding: 75px 6%;
 
     text-align: center;
-
-    background:
-        linear-gradient(
-            145deg,
-            #161616,
-            #0c0c0c
-        );
-
-    border: 1px solid var(--border);
-    border-radius: 18px;
-
-    box-shadow: 0 20px 70px rgba(0,0,0,.35);
 }
 
 
-.highlight-icon {
-    width: 85px;
-    height: 85px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 25px;
-
-    border: 1px solid var(--gold);
-    border-radius: 50%;
-
-    color: var(--gold);
-
-    font-size: 31px;
-}
-
-
-.about-highlight h3 {
-    max-width: 320px;
+.projects-preview h2 {
+    margin-bottom: 40px;
 
     font-family: 'Cormorant Garamond', serif;
 
     color: #eee;
 
-    font-size: 30px;
-    line-height: 1.1;
+    font-size: 48px;
+
+    font-weight: 600;
 }
 
 
-.gold-line {
-    width: 55px;
-    height: 1px;
-
-    margin: 25px 0;
-
-    background: var(--gold);
-}
-
-
-.about-highlight p {
-    color: var(--gold-light);
-
-    font-size: 12px;
-    letter-spacing: 1px;
-}
-
-
-.chairs {
-    margin-top: 20px;
-    font-size: 27px;
-}
-
-
-/* =========================================================
-   VALUES
-   ========================================================= */
-
-.values-section {
-    padding: 80px 5% 100px;
-
-    background: #0c0c0c;
-}
-
-
-.section-heading {
-    margin-bottom: 45px;
-
-    text-align: center;
-}
-
-
-.section-heading h2 {
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 52px;
-}
-
-
-.section-heading h2 span {
-    color: var(--gold);
-}
-
-
-.values-grid {
-    max-width: 1200px;
-
-    margin: auto;
-
+.project-grid {
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
 
-    gap: 18px;
+    gap: 15px;
+
+    margin-bottom: 35px;
 }
 
 
-.value-card {
-    padding: 35px 25px;
+.project-card {
+    position: relative;
+
+    height: 270px;
+
+    overflow: hidden;
 
     background: #111;
 
-    border: 1px solid var(--border);
-    border-radius: 12px;
-
-    transition: .4s ease;
-}
-
-
-.value-card:hover {
-    border-color: rgba(200,164,93,.55);
-    transform: translateY(-7px);
-}
-
-
-.value-icon {
-    width: 48px;
-    height: 48px;
-
-    margin-bottom: 23px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: var(--gold);
-
-    border: 1px solid rgba(200,164,93,.4);
     border-radius: 8px;
+
+    text-align: left;
 }
 
 
-.value-card h3 {
-    margin-bottom: 12px;
+.project-card::after {
+    content: "";
 
-    font-size: 14px;
-    letter-spacing: .5px;
-}
+    position: absolute;
 
-
-.value-card p {
-    color: #999;
-
-    font-size: 11px;
-    line-height: 1.8;
-}
-
-
-/* =========================================================
-   SERVICES PAGE
-   ========================================================= */
-
-.services-page {
-    width: 90%;
-
-    margin: auto;
-
-    padding: 90px 0 100px;
-
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 18px;
-}
-
-
-.service-large-card {
-    min-height: 300px;
-
-    padding: 35px 27px;
+    inset: 0;
 
     background:
         linear-gradient(
-            145deg,
-            #151515,
-            #0d0d0d
+            0deg,
+            rgba(0,0,0,.9),
+            transparent 65%
         );
-
-    border: 1px solid var(--border);
-    border-radius: 12px;
-
-    transition: .4s ease;
 }
 
 
-.service-large-card:hover {
-    transform: translateY(-8px);
+.project-card img {
+    width: 100%;
+    height: 100%;
 
-    border-color: rgba(200,164,93,.6);
+    object-fit: cover;
 
-    box-shadow: 0 20px 50px rgba(0,0,0,.3);
+    transition: .6s ease;
 }
 
 
-.service-large-card > i {
-    width: 58px;
-    height: 58px;
-
-    margin-bottom: 30px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: var(--gold);
-
-    border: 1px solid rgba(200,164,93,.5);
-    border-radius: 50%;
-
-    font-size: 22px;
+.project-card:hover img {
+    transform: scale(1.08);
 }
 
 
-.service-large-card h2 {
-    margin-bottom: 14px;
+.project-card h3 {
+    position: absolute;
 
-    font-family: 'Cormorant Garamond', serif;
+    left: 17px;
+    bottom: 35px;
 
-    font-size: 27px;
+    z-index: 5;
+
+    color: white;
+
+    font-size: 12px;
 }
 
 
-.service-large-card p {
-    color: #999;
+.project-card p {
+    position: absolute;
 
-    font-size: 11px;
-    line-height: 1.8;
-}
+    left: 17px;
+    bottom: 17px;
 
+    z-index: 5;
 
-/* =========================================================
-   CONTACT PAGE
-   ========================================================= */
-
-.contact-page {
-    width: 90%;
-
-    margin: auto;
-
-    padding: 90px 0 100px;
-}
-
-
-.contact-intro {
-    max-width: 700px;
-
-    margin-bottom: 55px;
-}
-
-
-.contact-intro h2 {
-    margin-bottom: 22px;
-
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 58px;
-    line-height: .95;
-}
-
-
-.contact-intro h2 span {
-    color: var(--gold);
-}
-
-
-.contact-intro p {
-    color: #999;
-
-    font-size: 13px;
-    line-height: 1.8;
-}
-
-
-.contact-cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 18px;
-}
-
-
-.contact-card {
-    min-height: 125px;
-
-    padding: 25px;
-
-    display: flex;
-    align-items: center;
-
-    gap: 20px;
-
-    background: #111;
-
-    border: 1px solid var(--border);
-    border-radius: 12px;
-
-    transition: .35s ease;
-}
-
-
-.contact-card:hover {
-    border-color: rgba(200,164,93,.6);
-
-    transform: translateY(-5px);
-}
-
-
-.contact-icon {
-    width: 55px;
-    height: 55px;
-
-    flex-shrink: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid rgba(200,164,93,.5);
-    border-radius: 50%;
-
-    color: var(--gold);
-
-    font-size: 20px;
-}
-
-
-.contact-icon.whatsapp {
-    border-color: #25d366;
-    color: #25d366;
-}
-
-
-.contact-card span {
-    color: var(--gold);
-
-    font-size: 8px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-}
-
-
-.contact-card h3 {
-    margin: 7px 0;
-
-    font-size: 15px;
-}
-
-
-.contact-card p {
-    color: #888;
-
-    font-size: 10px;
-}
-
-
-.contact-social-section {
-    margin-top: 55px;
-
-    padding: 40px;
-
-    text-align: center;
-
-    background: #101010;
-
-    border: 1px solid var(--border);
-    border-radius: 14px;
-}
-
-
-.contact-social-section > span {
     color: var(--gold);
 
     font-size: 9px;
-    letter-spacing: 2px;
-}
-
-
-.social-icons {
-    margin-top: 20px;
-
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    gap: 10px;
-}
-
-
-.social-icons a {
-    width: 39px;
-    height: 39px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid rgba(200,164,93,.4);
-    border-radius: 50%;
-
-    color: var(--gold);
-
-    font-size: 14px;
-
-    transition: .3s ease;
-}
-
-
-.social-icons a:hover {
-    background: var(--gold);
-    color: #080808;
-
-    transform: translateY(-4px);
-}
-
-
-.social-icons.large {
-    gap: 13px;
-}
-
-
-.social-icons.large a {
-    width: 48px;
-    height: 48px;
-
-    font-size: 17px;
 }
 
 
 /* =========================================================
-   CTA BANNER
+   CONTACT
    ========================================================= */
 
-.cta-banner {
+.contact {
     width: 90%;
 
-    margin: 0 auto 70px;
+    min-height: 120px;
 
-    min-height: 125px;
+    margin: 0 auto 60px;
 
-    padding: 28px 42px;
+    padding: 30px 40px;
 
     display: flex;
+
     align-items: center;
     justify-content: space-between;
 
-    background:
-        linear-gradient(
-            135deg,
-            #151515,
-            #0e0e0e
-        );
+    background: #111;
 
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255,255,255,.1);
+
     border-radius: 16px;
 }
 
 
-.cta-banner span {
-    color: var(--gold);
-
-    font-size: 8px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-}
-
-
-.cta-banner h2 {
-    margin-top: 7px;
+.contact h2 {
+    margin-bottom: 7px;
 
     font-family: 'Cormorant Garamond', serif;
 
@@ -864,34 +544,10 @@ a {
 }
 
 
-.gold-button {
-    min-height: 44px;
+.contact p {
+    color: #888;
 
-    padding: 0 22px;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 9px;
-
-    border-radius: 5px;
-
-    background: var(--gold);
-
-    color: #090909;
-
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: .8px;
-
-    transition: .3s ease;
-}
-
-
-.gold-button:hover {
-    background: var(--gold-light);
-    transform: translateY(-2px);
+    font-size: 10px;
 }
 
 
@@ -899,104 +555,8 @@ a {
    FOOTER
    ========================================================= */
 
-.site-footer {
-    padding: 65px 6% 25px;
-
-    border-top: 1px solid rgba(255,255,255,.07);
-
-    background: #070707;
-}
-
-
-.footer-top {
-    display: grid;
-    grid-template-columns: 1.4fr .8fr 1fr;
-
-    gap: 70px;
-
-    padding-bottom: 45px;
-}
-
-
-.footer-brand h2 {
-    color: var(--gold);
-
-    font-size: 19px;
-    letter-spacing: 1px;
-}
-
-
-.footer-brand p {
-    margin: 5px 0 12px;
-
-    color: #aaa;
-
-    font-size: 8px;
-    letter-spacing: 1.3px;
-    text-transform: uppercase;
-}
-
-
-.footer-brand span {
-    color: #666;
-
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 17px;
-}
-
-
-.footer-links,
-.footer-social {
-    display: flex;
-    flex-direction: column;
-}
-
-
-.footer-links h3,
-.footer-social h3 {
-    margin-bottom: 18px;
-
-    color: var(--gold);
-
-    font-size: 9px;
-    letter-spacing: 1.5px;
-}
-
-
-.footer-links a {
-    margin-bottom: 10px;
-
-    color: #777;
-
-    font-size: 10px;
-
-    transition: .3s;
-}
-
-
-.footer-links a:hover {
-    color: var(--gold);
-}
-
-
-.footer-social .social-icons {
-    justify-content: flex-start;
-
-    margin-top: 0;
-}
-
-
-.footer-social .social-icons a {
-    width: 33px;
-    height: 33px;
-
-    font-size: 12px;
-}
-
-
-.footer-bottom {
-    padding-top: 22px;
+footer {
+    padding: 35px 6% 25px;
 
     border-top: 1px solid rgba(255,255,255,.07);
 
@@ -1004,7 +564,34 @@ a {
 }
 
 
-.footer-bottom p {
+.social-links {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 22px;
+
+    margin-bottom: 22px;
+}
+
+
+.social-links a {
+    color: #888;
+
+    font-size: 9px;
+
+    transition: .3s;
+}
+
+
+.social-links a:hover {
+    color: var(--gold);
+}
+
+
+footer > p {
     color: #555;
 
     font-size: 8px;
@@ -1012,531 +599,279 @@ a {
 
 
 /* =========================================================
-   WHATSAPP FLOATING BUTTON
-   ========================================================= */
-
-.whatsapp-float {
-    position: fixed;
-
-    right: 25px;
-    bottom: 25px;
-
-    z-index: 9999;
-
-    width: 55px;
-    height: 55px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: #25d366;
-
-    color: white;
-
-    font-size: 25px;
-
-    box-shadow: 0 8px 30px rgba(0,0,0,.5);
-
-    transition: .3s ease;
-}
-
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-
-    box-shadow: 0 10px 35px rgba(37,211,102,.25);
-}
-
-
-/* =========================================================
    MOBILE
    ========================================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 700px) {
 
-    .site-header {
-        height: 80px;
-        padding: 0 20px;
+    header {
+        height: 78px;
+
+        padding: 0 18px;
     }
 
 
-    .nav-socials {
-        display: none;
+    .logo h2 {
+        font-size: 14px;
     }
 
 
-    .main-nav {
-        gap: 15px;
-    }
-
-
-    .main-nav a {
-        font-size: 8px;
-    }
-
-
-    .main-nav a.active::after {
-        bottom: -12px;
-    }
-
-
-    .page-hero {
-        height: 410px;
-        padding: 110px 25px 40px;
-    }
-
-
-    .page-hero h1 {
-        font-size: 55px;
-    }
-
-
-    .page-hero p {
-        font-size: 10px;
-    }
-
-
-    .about-section {
-        grid-template-columns: 1fr;
-
-        gap: 45px;
-
-        padding: 65px 0;
-    }
-
-
-    .about-content h2 {
-        font-size: 45px;
-    }
-
-
-    .about-content p {
-        font-size: 11px;
-    }
-
-
-    .values-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-
-    .services-page {
-        grid-template-columns: repeat(2, 1fr);
-
-        padding: 65px 0 80px;
-    }
-
-
-    .contact-intro h2 {
-        font-size: 47px;
-    }
-
-
-    .footer-top {
-        grid-template-columns: 1fr 1fr;
-    }
-
-}
-
-
-/* =========================================================
-   PHONE — ZOOMED FEEL
-   ========================================================= */
-
-@media (max-width: 600px) {
-
-    .site-header {
-        height: 75px;
-        padding: 0 15px;
-    }
-
-
-    .logo {
-        gap: 7px;
-    }
-
-
-    .logo-mark {
-        width: 34px;
-        height: 34px;
-
-        font-size: 15px;
-    }
-
-
-    .logo-text strong {
-        font-size: 12px;
-    }
-
-
-    .logo-text small {
+    .logo span {
         font-size: 5px;
+
         letter-spacing: 1px;
     }
 
 
-    .main-nav {
-        gap: 8px;
+    nav {
+        max-width: 180px;
+
+        gap: 9px;
+
+        justify-content: flex-end;
     }
 
 
-    .main-nav a {
-        font-size: 6.5px;
-    }
-
-
-    .page-hero {
-        height: 370px;
-
-        padding: 105px 22px 35px;
-
-        background-position: 62% center;
-    }
-
-
-    .page-hero::before {
-        content: "";
-
-        position: absolute;
-
-        inset: 0;
-
-        background: rgba(0,0,0,.08);
-
-        transform: scale(1.12);
-    }
-
-
-    .page-hero h1 {
-        font-size: 48px;
-    }
-
-
-    .page-hero p {
-        max-width: 280px;
-
-        font-size: 9px;
-
-        line-height: 1.7;
-    }
-
-
-    .section-label {
+    nav a {
         font-size: 7px;
-        gap: 8px;
     }
 
 
-    .section-label i {
-        width: 14px;
+    nav a:first-child::after {
+        bottom: -10px;
     }
 
 
-    /* ABOUT */
+    /* HERO */
 
-    .about-section {
-        width: 90%;
-
-        padding: 55px 0;
-
-        gap: 35px;
+    .hero {
+        height: 620px;
     }
 
 
-    .about-content h2 {
-        font-size: 40px;
+    /* Zoom the image on phone */
+
+    .hero-image img {
+        width: 145%;
+        max-width: none;
+
+        object-fit: cover;
+
+        object-position: 65% center;
     }
 
 
-    .about-content p {
-        font-size: 10px;
+    .hero::after {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(5,5,5,.99) 0%,
+                rgba(5,5,5,.90) 35%,
+                rgba(5,5,5,.43) 72%,
+                rgba(5,5,5,.08) 100%
+            ),
+            linear-gradient(
+                0deg,
+                rgba(5,5,5,.6),
+                transparent 45%
+            );
+    }
+
+
+    .hero-content {
+        left: 22px;
+
+        top: 145px;
+
+        width: 270px;
+    }
+
+
+    .hero-content > p:first-child {
+        font-size: 7px;
+
+        padding-left: 23px;
+    }
+
+
+    .hero-content > p:first-child::before {
+        width: 15px;
+    }
+
+
+    .hero h1 {
+        font-size: 52px;
+
+        line-height: .87;
+    }
+
+
+    .hero .description {
+        max-width: 250px;
+
+        font-size: 8px;
+
         line-height: 1.8;
     }
 
 
-    .about-highlight {
-        min-height: 340px;
+    .btn {
+        min-width: 155px;
 
-        padding: 30px 20px;
-    }
-
-
-    .highlight-icon {
-        width: 65px;
-        height: 65px;
-
-        font-size: 23px;
-    }
-
-
-    .about-highlight h3 {
-        font-size: 25px;
-    }
-
-
-    .about-highlight p {
-        font-size: 9px;
-    }
-
-
-    /* VALUES */
-
-    .values-section {
-        padding: 60px 5%;
-    }
-
-
-    .section-heading h2 {
-        font-size: 42px;
-    }
-
-
-    .values-grid {
-        grid-template-columns: 1fr 1fr;
-
-        gap: 10px;
-    }
-
-
-    .value-card {
-        min-height: 190px;
-
-        padding: 23px 16px;
-    }
-
-
-    .value-icon {
-        width: 38px;
         height: 38px;
 
-        font-size: 13px;
-    }
-
-
-    .value-card h3 {
-        font-size: 10px;
-    }
-
-
-    .value-card p {
-        font-size: 8px;
-        line-height: 1.7;
+        font-size: 7px;
     }
 
 
     /* SERVICES */
 
-    .services-page {
-        width: 90%;
+    .services {
+        width: 91%;
 
+        margin-top: -50px;
+
+        padding: 15px;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        border-radius: 13px;
+    }
+
+
+    .service-card {
+        min-height: 105px;
+
+        padding: 13px 10px 13px 38px;
+    }
+
+
+    .service-card:nth-child(1),
+    .service-card:nth-child(2),
+    .service-card:nth-child(3),
+    .service-card:nth-child(4) {
+        border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+
+    .service-card:nth-child(2)::after,
+    .service-card:nth-child(4)::after {
+        display: none;
+    }
+
+
+    .service-card:nth-child(1)::after,
+    .service-card:nth-child(3)::after {
+        display: block;
+    }
+
+
+    .service-card h3 {
+        font-size: 7px;
+
+        margin-bottom: 6px;
+    }
+
+
+    .service-card p {
+        font-size: 7px;
+
+        line-height: 1.6;
+    }
+
+
+    /* PROJECTS */
+
+    .projects-preview {
+        padding: 55px 20px;
+    }
+
+
+    .projects-preview h2 {
+        font-size: 38px;
+
+        margin-bottom: 28px;
+    }
+
+
+    .project-grid {
         grid-template-columns: 1fr 1fr;
 
-        gap: 10px;
-
-        padding: 55px 0 65px;
+        gap: 9px;
     }
 
 
-    .service-large-card {
-        min-height: 220px;
+    .project-card {
+        height: 190px;
 
-        padding: 22px 15px;
+        border-radius: 7px;
     }
 
 
-    .service-large-card > i {
-        width: 43px;
-        height: 43px;
+    .project-card h3 {
+        left: 9px;
 
-        margin-bottom: 20px;
+        bottom: 28px;
 
-        font-size: 15px;
-    }
-
-
-    .service-large-card h2 {
-        font-size: 21px;
-    }
-
-
-    .service-large-card p {
         font-size: 8px;
-        line-height: 1.7;
+    }
+
+
+    .project-card p {
+        left: 9px;
+
+        bottom: 12px;
+
+        font-size: 6px;
     }
 
 
     /* CONTACT */
 
-    .contact-page {
-        width: 90%;
-
-        padding: 55px 0 70px;
-    }
-
-
-    .contact-intro h2 {
-        font-size: 40px;
-    }
-
-
-    .contact-intro p {
-        font-size: 10px;
-    }
-
-
-    .contact-cards {
-        grid-template-columns: 1fr;
-
-        gap: 10px;
-    }
-
-
-    .contact-card {
-        min-height: 95px;
-
-        padding: 18px;
-
-        gap: 15px;
-    }
-
-
-    .contact-icon {
-        width: 43px;
-        height: 43px;
-
-        font-size: 15px;
-    }
-
-
-    .contact-card span {
-        font-size: 6px;
-    }
-
-
-    .contact-card h3 {
-        font-size: 12px;
-    }
-
-
-    .contact-card p {
-        font-size: 8px;
-    }
-
-
-    .contact-social-section {
-        padding: 25px 15px;
-    }
-
-
-    .social-icons.large a {
-        width: 38px;
-        height: 38px;
-
-        font-size: 13px;
-    }
-
-
-    /* CTA */
-
-    .cta-banner {
-        width: 90%;
+    .contact {
+        width: 91%;
 
         padding: 25px 20px;
-
-        min-height: 120px;
 
         flex-direction: column;
 
         align-items: flex-start;
 
         gap: 20px;
+
+        border-radius: 13px;
     }
 
 
-    .cta-banner h2 {
+    .contact h2 {
         font-size: 27px;
     }
 
 
-    .gold-button {
-        min-height: 39px;
-
-        font-size: 7px;
+    .contact p {
+        font-size: 8px;
     }
 
 
     /* FOOTER */
 
-    .site-footer {
-        padding: 45px 20px 20px;
+    footer {
+        padding: 30px 15px 20px;
     }
 
 
-    .footer-top {
-        grid-template-columns: 1fr 1fr;
-
-        gap: 35px;
+    .social-links {
+        gap: 12px;
     }
 
 
-    .footer-brand {
-        grid-column: 1 / -1;
-    }
-
-
-    .footer-brand h2 {
-        font-size: 16px;
-    }
-
-
-    .footer-brand span {
-        font-size: 14px;
-    }
-
-
-    .footer-links h3,
-    .footer-social h3 {
+    .social-links a {
         font-size: 7px;
     }
 
 
-    .footer-links a {
-        font-size: 8px;
-    }
-
-
-    .footer-social .social-icons {
-        gap: 6px;
-    }
-
-
-    .footer-social .social-icons a {
-        width: 27px;
-        height: 27px;
-
-        font-size: 9px;
-    }
-
-
-    .footer-bottom p {
+    footer > p {
         font-size: 6px;
-        line-height: 1.6;
-    }
-
-
-    /* WHATSAPP */
-
-    .whatsapp-float {
-        width: 48px;
-        height: 48px;
-
-        right: 17px;
-        bottom: 17px;
-
-        font-size: 21px;
     }
 
 }
@@ -1548,51 +883,47 @@ a {
 
 @media (max-width: 380px) {
 
-    .main-nav {
+    .hero {
+        height: 600px;
+    }
+
+
+    .hero-image img {
+        width: 160%;
+
+        object-position: 62% center;
+    }
+
+
+    .hero-content {
+        left: 18px;
+
+        width: 250px;
+    }
+
+
+    .hero h1 {
+        font-size: 47px;
+    }
+
+
+    nav {
         gap: 6px;
     }
 
 
-    .main-nav a {
+    nav a {
         font-size: 6px;
     }
 
 
-    .logo-text strong {
-        font-size: 11px;
+    .service-card h3 {
+        font-size: 6.5px;
     }
 
 
-    .page-hero h1 {
-        font-size: 43px;
+    .service-card p {
+        font-size: 6.5px;
     }
 
-
-    .about-content h2,
-    .contact-intro h2 {
-        font-size: 36px;
-    }
-
-
-    .services-page {
-        gap: 8px;
-    }
-
-
-    .service-large-card {
-        min-height: 205px;
-
-        padding: 18px 12px;
-    }
-
-
-    .service-large-card h2 {
-        font-size: 18px;
-    }
-
-
-    .service-large-card p {
-        font-size: 7px;
-    }
-
-}
+   }
