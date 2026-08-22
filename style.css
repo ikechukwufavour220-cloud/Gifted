@@ -1596,3 +1596,380 @@ a {
     }
 
 }
+
+/* =========================================================
+   FOUNDER / CEO SECTION
+   ========================================================= */
+
+.founder-section {
+    width: 90%;
+    margin: 0 auto;
+    padding: 90px 0 100px;
+}
+
+.founder-section .section-heading {
+    margin-bottom: 55px;
+}
+
+
+/* FOUNDER CONTAINER */
+
+.founder-container {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+
+/* FOUNDER IMAGE */
+
+.founder-image {
+    position: relative;
+
+    width: 100%;
+    max-width: 430px;
+
+    margin: auto;
+
+    padding: 10px;
+
+    border: 1px solid rgba(200, 164, 93, 0.45);
+
+    background: #111;
+
+    border-radius: 12px;
+}
+
+
+.founder-image::before {
+    content: "";
+
+    position: absolute;
+
+    top: -10px;
+    left: -10px;
+
+    width: 65px;
+    height: 65px;
+
+    border-top: 2px solid var(--gold);
+    border-left: 2px solid var(--gold);
+
+    border-radius: 8px 0 0 0;
+}
+
+
+.founder-image::after {
+    content: "";
+
+    position: absolute;
+
+    right: -10px;
+    bottom: -10px;
+
+    width: 65px;
+    height: 65px;
+
+    border-right: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+
+    border-radius: 0 0 8px 0;
+}
+
+
+.founder-image img {
+    width: 100%;
+    height: 500px;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 7px;
+}
+
+
+/* FOUNDER INFORMATION */
+
+.founder-content {
+    max-width: 600px;
+}
+
+
+.founder-role {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: var(--gold);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+
+.founder-content h2 {
+    margin-bottom: 7px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    color: #f2f2f2;
+
+    font-size: 58px;
+    line-height: .95;
+
+    font-weight: 600;
+}
+
+
+.founder-content h3 {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--gold-light);
+
+    font-size: 11px;
+    font-weight: 500;
+
+    letter-spacing: 1px;
+}
+
+
+.founder-content h3 i {
+    color: #4da6ff;
+
+    font-size: 13px;
+}
+
+
+.founder-content .gold-line {
+    width: 55px;
+    height: 1px;
+
+    margin: 25px 0;
+    background: var(--gold);
+}
+
+
+.founder-content p {
+    margin-bottom: 17px;
+
+    color: #999;
+
+    font-size: 11px;
+
+    line-height: 1.9;
+}
+
+
+.founder-content p strong {
+    color: var(--gold-light);
+
+    font-weight: 500;
+}
+
+
+/* FOUNDER SOCIAL ICONS */
+
+.founder-socials {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    margin-top: 27px;
+}
+
+
+.founder-socials a {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(200, 164, 93, .4);
+
+    border-radius: 50%;
+
+    color: var(--gold);
+
+    font-size: 13px;
+
+    transition: .3s ease;
+}
+
+
+.founder-socials a:hover {
+    background: var(--gold);
+
+    color: #080808;
+
+    transform: translateY(-4px);
+}
+
+
+/* =========================================================
+   FOUNDER — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .founder-container {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+
+    .founder-image {
+        max-width: 500px;
+    }
+
+
+    .founder-content {
+        max-width: 700px;
+
+        margin: 0 auto;
+    }
+
+
+    .founder-content h2 {
+        font-size: 52px;
+    }
+
+}
+
+
+/* =========================================================
+   FOUNDER — MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .founder-section {
+        width: 90%;
+
+        padding: 60px 0 70px;
+    }
+
+
+    .founder-section .section-heading {
+        margin-bottom: 40px;
+    }
+
+
+    .founder-section .section-heading h2 {
+        font-size: 40px;
+    }
+
+
+    .founder-container {
+        gap: 38px;
+    }
+
+
+    .founder-image {
+        width: 100%;
+
+        padding: 7px;
+
+        border-radius: 9px;
+    }
+
+
+    .founder-image img {
+        height: 390px;
+
+        border-radius: 5px;
+    }
+
+
+    .founder-image::before {
+        width: 45px;
+        height: 45px;
+
+        top: -7px;
+        left: -7px;
+    }
+
+
+    .founder-image::after {
+        width: 45px;
+        height: 45px;
+
+        right: -7px;
+        bottom: -7px;
+    }
+
+
+    .founder-role {
+        font-size: 7px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .founder-content h2 {
+        font-size: 42px;
+    }
+
+
+    .founder-content h3 {
+        font-size: 9px;
+    }
+
+
+    .founder-content p {
+        font-size: 9px;
+
+        line-height: 1.8;
+    }
+
+
+    .founder-socials {
+        margin-top: 22px;
+
+        gap: 7px;
+    }
+
+
+    .founder-socials a {
+        width: 32px;
+        height: 32px;
+
+        font-size: 11px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .founder-content h2 {
+        font-size: 37px;
+    }
+
+
+    .founder-image img {
+        height: 350px;
+    }
+
+   }
